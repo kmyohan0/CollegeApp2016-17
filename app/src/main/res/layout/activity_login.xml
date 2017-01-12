@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.csaper6.collegeapp.Presenter.LoginActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:orientation="vertical"
@@ -19,8 +19,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
             android:id="@+id/user_name"
-            android:hint="Username: "/>
+            android:hint="Email: "/>
 
         <EditText
             android:layout_width="match_parent"
@@ -28,7 +30,7 @@
             android:ems="10"
             android:inputType="textPassword"
             android:id="@+id/password"
-            android:hint="Password; "/>
+            android:hint="Password: "/>
 
         <LinearLayout
             android:orientation="vertical"

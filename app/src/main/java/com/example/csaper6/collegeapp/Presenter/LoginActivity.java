@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 import com.example.csaper6.collegeapp.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -27,12 +31,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void autofill() {
         Intent intent = getIntent();
-        if ()
+        if (intent.hasExtra("username") && intent.hasExtra("password"))
         {
             String uName= intent.getStringExtra("username");
             String pWord= intent.getStringExtra("password");
-            username.setText(uName);
-            password.setText(pWord);
+            username.setText("" + uName);
+            password.setText("" + pWord);
         }
         else
         {
@@ -51,6 +55,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         forgotPasswordButton.setOnClickListener(this);
         createAccountButton = (Button) findViewById(R.id.create_account);
         createAccountButton.setOnClickListener(this);
+        Backendless.initApp(this, "B05B93CB-EC32-EBF4-FF3B-F3C846352400", "BAF47B3E-D747-5D1F-FF82-0A6A82332500" , "v1");
     }
 
     public void onClick(View view)
@@ -69,11 +74,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 else
                 {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
+                  Backendless.UserService.login(username.getText().toString(), password.getText().toString(), CreateRegCallback());
 
                 }
             }
+            
         }
         else if (view.getId() == forgotPasswordButton.getId())
         {
@@ -91,4 +96,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
     }
+
+    private AsyncCallback<BackendlessUser>CreateRegCallback() {
+    return new AsyncCallback<BackendlessUser>() {
+        @Override
+        public void handleResponse(BackendlessUser response) {
+            Toast.makeText(LoginActivity.this, "LOGIN SUCCESS!", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void handleFault(BackendlessFault fault) {
+            Toast.makeText(LoginActivity.this,"" + fault.getMessage() , Toast.LENGTH_SHORT).show();
+        }
+    };
+    }
+
+
 }
