@@ -1,5 +1,6 @@
 package com.example.csaper6.collegeapp.Presenter;
 
+import android.accounts.Account;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -102,6 +103,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         @Override
         public void handleResponse(BackendlessUser response) {
             Toast.makeText(LoginActivity.this, "LOGIN SUCCESS!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
         }
 
         @Override
