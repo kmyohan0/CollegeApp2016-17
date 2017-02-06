@@ -10,7 +10,7 @@ package com.example.csaper6.collegeapp.Presenter;
     import com.example.csaper6.collegeapp.R;
 
 /**
-     * Created by vamsikrishna on 12-Feb-15.
+     * Created by Yohan Kim
      */
     public class Splash extends Activity {
 
@@ -23,7 +23,7 @@ package com.example.csaper6.collegeapp.Presenter;
             Thread timerThread = new Thread(){
                 public void run(){
                     try{
-                        sleep(3000);
+                        sleep(2200);
                     }
                     catch(InterruptedException e){
                         e.printStackTrace();

@@ -22,7 +22,8 @@
             android:ems="10"
             android:inputType="textEmailAddress"
             android:id="@+id/user_name"
-            android:hint="Email: "/>
+            android:hint="Email: "
+            android:text="kmyohan0@gmail.com" />
 
         <EditText
             android:layout_width="match_parent"
@@ -30,7 +31,8 @@
             android:ems="10"
             android:inputType="textPassword"
             android:id="@+id/password"
-            android:hint="Password: "/>
+            android:hint="Password: "
+            android:text="johny2000" />
 
         <LinearLayout
             android:orientation="vertical"

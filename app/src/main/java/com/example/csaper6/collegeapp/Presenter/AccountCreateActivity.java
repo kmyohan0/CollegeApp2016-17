@@ -25,6 +25,11 @@ public class AccountCreateActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_create);
         wireWidget();
+
+        //provide for up-navigation
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Add a listener to the submit button
     }
 
     private void wireWidget() {
